@@ -112,9 +112,11 @@ body {
   flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
+  align-items: flex-start; /* 🔧 This line aligns the items at the top */
   max-width: 1000px;
   margin: auto;
 }
+
 
 .about-text, .about-list {
   flex: 1 1 45%;
