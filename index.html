@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showcase Snap - Photography Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="navbar">
+    <div class="logo">📸 Showcase Snap</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="darkModeToggle"><span id="theme-icon">🌙</span></button>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-content fade-in">
+      <h1 class="hero-text"><span id="typewriter"></span></h1>
+      <p>Capturing Moments that Matter Most</p>
+    </div>
+  </header>
+
+  <section class="about fade-in" id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>
+          At Showcase Snap, we transform fleeting moments into timeless visuals. Our lens is focused on you — your story, your light, your moments.
+        </p>
+        <p>
+          Whether it's a wedding, an event, or a product, we capture the essence of what makes it memorable.
+        </p>
+      </div>
+      <div class="about-list">
+        <ul>
+          <li>📸 <strong>Professional Photography</strong></li>
+          <li>⏱️ <strong>Fast Turnarounds</strong></li>
+          <li>💡 <strong>Creative Visual Storytelling</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="portfolio fade-in" id="portfolio">
+      <h2>Our Work</h2>
+
+      <div class="ad-sample">
+        <h3>Wedding Moments</h3>
+        <p><em>Elegant captures of timeless love</em></p>
+        <img src="images/wedding.jpg" alt="Wedding Photography" class="preview-image" />
+      </div>
+
+      <div class="ad-sample">
+        <h3>Product Highlights</h3>
+        <p><em>Bold visuals that sell</em></p>
+        <img src="images/product.jpg" alt="Product Photography" class="preview-image" />
+      </div>
+
+      <div class="ad-sample">
+        <h3>Events & Stories</h3>
+        <p><em>Every frame tells a story</em></p>
+        <img src="images/event.jpg" alt="Event Photography" class="preview-image" />
+      </div>
+    </section>
+
+    <section class="contact fade-in" id="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out at <strong>hello@showcasesnap.com</strong> for bookings and inquiries.</p>
+    </section>
+  </main>
+
+  <button id="backToTop" class="ripple-btn">↑</button>
+
+  <footer>
+    <p>&copy; 2025 Showcase Snap. All rights reserved.</p>
+  </footer>
+
+  <div id="image-modal">
+    <span id="close-modal">×</span>
+    <img id="modal-img" src="" alt="Preview" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
