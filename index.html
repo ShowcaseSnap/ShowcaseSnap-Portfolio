@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Showcase Snap - Photography Portfolio</title>
+  <title>Showcase Snap</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="progress-bar"></div>
-
   <nav class="navbar">
     <div class="logo">📸 Showcase Snap</div>
     <ul class="nav-links">
@@ -18,76 +16,59 @@
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button id="darkModeToggle"><span id="theme-icon">🌙</span></button>
   </nav>
 
   <header class="hero" id="hero">
-    <div class="hero-content fade-in">
-      <h1 class="hero-text"><span id="typewriter"></span></h1>
+    <div class="hero-box">
+      <h1>We Capture Memories.</h1>
       <p>Capturing Moments that Matter Most</p>
     </div>
   </header>
 
-  <section class="about fade-in" id="about">
-    <div class="about-container">
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p>
-          Showcase Snap is a photography service tailored for local small businesses, especially restaurants. We specialize in high-quality images that showcase your space, dishes, ambiance, and brand for impactful social media marketing.
-        </p>
-        <p>
-          We don’t shoot weddings. Our mission is simple: help businesses attract more customers through powerful visual storytelling.
-        </p>
-      </div>
-      <div class="about-list">
-        <ul>
-          <li>🍽️ <strong>Restaurant Photography</strong> — food, decor, and vibe</li>
-          <li>📦 <strong>Product Shots</strong> — detail-rich images that pop</li>
-          <li>📱 <strong>Social Media-Ready</strong> — made for engagement</li>
-        </ul>
-      </div>
+  <section class="about-container" id="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        Showcase Snap is a photography service tailored for local small businesses, especially restaurants.
+        We specialize in high-quality images that showcase your space, dishes, ambiance, and brand for impactful social media marketing.
+      </p>
+      <p>
+        We don’t shoot weddings. Our mission is simple: help businesses attract more customers through powerful visual storytelling.
+      </p>
+    </div>
+    <div class="about-list">
+      <ul>
+        <li>🍽️ <strong>Restaurant Photography</strong> — food, decor, and vibe</li>
+        <li>📦 <strong>Product Shots</strong> — detail-rich images that pop</li>
+        <li>📲 <strong>Social Media–Ready</strong> — made for engagement</li>
+      </ul>
     </div>
   </section>
 
-  <main>
-    <section class="portfolio fade-in" id="portfolio">
-      <h2>Our Work</h2>
+  <section class="portfolio" id="portfolio">
+    <h2>Our Work</h2>
+    <div class="portfolio-grid">
+      <img src="images/photo1.jpg" alt="Restaurant Interior" />
+      <img src="images/photo2.jpg" alt="Signature Dish" />
+      <img src="images/photo3.jpg" alt="Brand Showcase" />
+    </div>
+  </section>
 
-      <div class="ad-sample">
-        <h3>Restaurant Features</h3>
-        <p><em>Highlighting dishes, mood, and interiors</em></p>
-        <img src="images/restaurant.jpg" alt="Restaurant Photography" class="preview-image" />
-      </div>
+  <div class="social-box">
+    <a href="https://www.instagram.com/showcasesnap" target="_blank" rel="noopener">
+      <img src="images/instagram-logo.png" alt="Instagram" class="social-icon" />
+      <span>Follow us on Instagram</span>
+    </a>
+  </div>
 
-      <div class="ad-sample">
-        <h3>Product Highlights</h3>
-        <p><em>Bold visuals that sell</em></p>
-        <img src="images/product.jpg" alt="Product Photography" class="preview-image" />
-      </div>
-
-      <div class="ad-sample">
-        <h3>Business Atmosphere</h3>
-        <p><em>Capturing space, vibe, and team culture</em></p>
-        <img src="images/space.jpg" alt="Business Environment Photography" class="preview-image" />
-      </div>
-    </section>
-
-    <section class="contact fade-in" id="contact">
-      <h2>Contact Us</h2>
-      <p>Reach out at <strong>showcasesnap3@gmail.com</strong> for bookings and inquiries.</p>
-    </section>
-  </main>
-
-  <button id="backToTop" class="ripple-btn">↑</button>
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Reach out at <strong>showcasesnap3@gmail.com</strong> for bookings and inquiries.</p>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Showcase Snap. All rights reserved.</p>
+    <p>© 2025 Showcase Snap. All rights reserved.</p>
   </footer>
-
-  <div id="image-modal">
-    <span id="close-modal">×</span>
-    <img id="modal-img" src="" alt="Preview" />
-  </div>
 
   <script src="script.js"></script>
 </body>
