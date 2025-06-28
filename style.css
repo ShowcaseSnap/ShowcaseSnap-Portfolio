@@ -56,11 +56,7 @@ html {
 
 /* Hero */
 .hero {
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url('images/hero-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(to right, #ffecd2, #fcb69f); /* warm peach-to-coral gradient */
   height: 60vh;
   display: flex;
   justify-content: center;
