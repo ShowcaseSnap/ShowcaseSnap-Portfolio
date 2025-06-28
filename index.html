@@ -1,92 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Showcase Snap</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <nav class="navbar">
-    <div class="logo">📸 Showcase Snap</div>
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
- <header class="hero" id="hero">
-  <div class="hero-box">
-    <h1><span id="typewriter-text"></span></h1>
-    <p>Capturing Memories That Matter</p>
-  </div>
-</header>
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: hotpink;
+  color: #222;
+  line-height: 1.6;
+}
 
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
+}
 
-  <section class="about-container" id="about">
-   <div class="anchor-fix" id="about"></div>
-<section class="about-container">
-  <div class="about-text">
-    <h2>About Us</h2>
-    <p>
-      Showcase Snap is a photography service tailored for local small businesses, especially restaurants.
-      We specialize in high-quality images that showcase your space, dishes, ambiance, and brand for impactful social media marketing.
-    </p>
-    <p>
-      We don’t shoot weddings. Our mission is simple: help businesses attract more customers through powerful visual storytelling.
-    </p>
-  </div>
-  <div class="about-list">
-    <ul>
-      <li>🍽️ <strong>Restaurant Photography</strong> — food, decor, and vibe</li>
-      <li>📦 <strong>Product Shots</strong> — detail-rich images that pop</li>
-      <li>📲 <strong>Social Media–Ready</strong> — made for engagement</li>
-    </ul>
-  </div>
-</section>
+/* Navbar */
+.navbar {
+  background: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #f0f0f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-  </section>
+.logo {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: hotpink;
+}
 
-  <section class="portfolio" id="portfolio">
-   <div class="anchor-fix" id="portfolio"></div>
-<section class="portfolio">
-  <h2>Our Work</h2>
-  <div class="portfolio-grid">
-    <img src="interior1.jpg" alt="Cozy interior" />
-    <img src="dish1.jpg" alt="Signature Dish" />
-    <img src="product-shot.jpg" alt="Product Promo" />
-    <img src="bbq.jpg" alt="BBQ" />
-    <img src="burger.jpg" alt="Burger" />
-    <img src="medkebab.jpg" alt="Mediterranean Kebab" />
-    <img src="shrimp.jpg" alt="Shrimp" />
-  </div>
-</section>
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
 
-  </section>
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 600;
+  transition: color 0.3s;
+}
 
-  <div class="social-box">
-    <a href="https://www.instagram.com/showcase_snap3/" target="_blank" rel="noopener">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon" />
-      <span>Follow us on Instagram</span>
-    </a>
-  </div>
+.nav-links a:hover {
+  color: deeppink;
+}
 
-  <section class="contact" id="contact">
- <div class="anchor-fix" id="contact"></div>
-<section class="contact">
-  <h2>Contact Us</h2>
-  <p>Reach out at <strong>showcasesnap3@gmail.com</strong> for bookings and inquiries.</p>
-</section>
+/* Hero */
+.hero {
+  background: rgba(255, 255, 255, 0.9);
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  </section>
+.hero-box {
+  background: #333;
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
 
-  <footer>
-    <p>© 2025 Showcase Snap. All rights reserved.</p>
-  </footer>
+.hero-box h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  color: white;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.hero-box p {
+  font-size: 1.1em;
+  color: #ddd;
+}
+
+/* About */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 12px;
+}
+
+.about-text,
+.about-list {
+  flex: 1 1 400px;
+}
+
+.about-text h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: deeppink;
+}
+
+.about-text p {
+  margin-bottom: 14px;
+}
+
+.about-list li {
+  margin-bottom: 12px;
+  color: #444;
+}
+
+/* Portfolio */
+.portfolio {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: deeppink;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.portfolio-grid img {
+  width: 100%;
+  border-radius: 10px;
+  border: 3px solid hotpink;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.portfolio-grid img:hover {
+  transform: scale(1.05);
+  border-color: deeppink;
+}
+
+/* Instagram */
+.social-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 40px auto;
+  padding: 12px 20px;
+  background: white;
+  border: 2px solid deeppink;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+}
+
+.social-box a {
+  text-decoration: none;
+  font-weight: 500;
+  color: deeppink;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Contact */
+.contact {
+  background: #ffe6f0;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 12px;
+  margin: 40px 20px;
+}
+
+.contact h2 {
+  color: deeppink;
+}
+
+/* Footer */
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 0.9em;
+  border-top: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-box {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
