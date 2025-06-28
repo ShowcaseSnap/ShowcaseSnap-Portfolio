@@ -20,33 +20,43 @@ const backToTop = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
   const scrolled = (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  document.getElementById("progress-bar").style.width = `${scrolled}%`;
-  backToTop.classList.toggle("show", scrollY > 200);
+  const progressBar = document.getElementById("progress-bar");
+  if (progressBar) progressBar.style.width = `${scrolled}%`;
+  if (backToTop) backToTop.classList.toggle("show", scrollY > 200);
 });
 
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
 // Dark mode toggle
 const toggle = document.getElementById("darkModeToggle");
 const icon = document.getElementById("theme-icon");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-});
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if (icon) {
+      icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    }
+  });
+}
 
-// Typewriter effect
-const text = "We Capture Memories.";
-let i = 0;
+// Typewriter effect for hero heading
+const typewriterText = "We Capture Memories.";
+let index = 0;
+
 function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typewriter").textContent += text.charAt(i);
-    i++;
+  const target = document.getElementById("typewriter-text");
+  if (target && index < typewriterText.length) {
+    target.textContent += typewriterText.charAt(index);
+    index++;
     setTimeout(typeWriter, 70);
   }
 }
-window.addEventListener("load", typeWriter);
+
+window.addEventListener("DOMContentLoaded", typeWriter);
 
 // Ripple effect on buttons
 document.querySelectorAll(".ripple-btn").forEach(btn => {
@@ -68,11 +78,15 @@ const closeModal = document.getElementById("close-modal");
 
 images.forEach(img => {
   img.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
+    if (modal && modalImg) {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    }
   });
 });
 
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+if (closeModal && modal) {
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
