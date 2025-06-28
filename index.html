@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">📸 Showcase Snap</div>
     <ul class="nav-links">
@@ -18,15 +20,17 @@
     </ul>
   </nav>
 
- <header class="hero" id="hero">
-  <div class="hero-box">
-    <h1><span id="typewriter-text"></span></h1>
-    <p>Capturing Memories That Matter</p>
-  </div>
-</header>
+  <!-- Hero -->
+  <header class="hero" id="hero">
+    <div class="hero-box">
+      <h1><span id="typewriter-text"></span></h1>
+      <p>Capturing Memories That Matter</p>
+    </div>
+  </header>
 
-
-  <section class="about-container" id="about">
+  <!-- About -->
+  <div class="anchor-fix" id="about"></div>
+  <section class="about-container">
     <div class="about-text">
       <h2>About Us</h2>
       <p>
@@ -46,19 +50,22 @@
     </div>
   </section>
 
-  <section class="portfolio" id="portfolio">
+  <!-- Portfolio -->
+  <div class="anchor-fix" id="portfolio"></div>
+  <section class="portfolio">
     <h2>Our Work</h2>
-   <div class="portfolio-grid">
-  <img src="interior1.jpg" alt="Cozy interior" />
-  <img src="dish1.jpg" alt="Signature Dish" />
-  <img src="product-shot.jpg" alt="Product Promo" />
-  <img src="bbq.jpg" alt="Product Promo" />
-  <img src="burger.jpg" alt="Product Promo" />
-  <img src="medkebab.jpg" alt="Product Promo" />
-  <img src="shrimp.jpg" alt="Product Promo" />
-</div>
+    <div class="portfolio-grid">
+      <img src="interior1.jpg" alt="Cozy interior" />
+      <img src="dish1.jpg" alt="Signature Dish" />
+      <img src="product-shot.jpg" alt="Product Promo" />
+      <img src="bbq.jpg" alt="BBQ Platter" />
+      <img src="burger.jpg" alt="Delicious Burger" />
+      <img src="medkebab.jpg" alt="Mediterranean Kebab" />
+      <img src="shrimp.jpg" alt="Grilled Shrimp" />
+    </div>
   </section>
 
+  <!-- Instagram -->
   <div class="social-box">
     <a href="https://www.instagram.com/showcase_snap3/" target="_blank" rel="noopener">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon" />
@@ -66,15 +73,26 @@
     </a>
   </div>
 
-  <section class="contact" id="contact">
+  <!-- Contact -->
+  <div class="anchor-fix" id="contact"></div>
+  <section class="contact">
     <h2>Contact Us</h2>
     <p>Reach out at <strong>showcasesnap3@gmail.com</strong> for bookings and inquiries.</p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Showcase Snap. All rights reserved.</p>
   </footer>
 
+  <!-- No JavaScript Warning -->
+  <noscript>
+    <p style="text-align:center; color: red;">
+      This website requires JavaScript to display animations and features.
+    </p>
+  </noscript>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
