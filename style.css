@@ -12,6 +12,11 @@ body {
   line-height: 1.6;
 }
 
+html {
+  scroll-padding-top: 100px; /* Prevent navbar from covering section headers */
+}
+
+
 /* Navbar */
 .navbar {
   background: white;
