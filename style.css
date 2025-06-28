@@ -7,9 +7,16 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fff8f2;
+  background: linear-gradient(135deg, #fff0f5, #ffe0b2);
   color: #333;
   line-height: 1.6;
+  animation: bodyBackground 12s ease infinite alternate;
+}
+
+@keyframes bodyBackground {
+  0% { background: linear-gradient(135deg, #fff0f5, #ffe0b2); }
+  50% { background: linear-gradient(135deg, #f0f8ff, #e0f7fa); }
+  100% { background: linear-gradient(135deg, #fffde7, #e1bee7); }
 }
 
 html {
@@ -19,7 +26,7 @@ html {
 
 /* Navbar */
 .navbar {
-  background: linear-gradient(to right, #ff9a8b, #fad0c4);
+  background: linear-gradient(90deg, #fc466b, #3f5efb);
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -31,9 +38,10 @@ html {
 }
 
 .logo {
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: 700;
-  color: #6a0572;
+  color: #ffffff;
+  text-shadow: 0 0 8px #ffd700;
 }
 
 .nav-links {
@@ -46,18 +54,37 @@ html {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  transition: color 0.3s ease;
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  bottom: -6px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: right;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .nav-links a:hover {
-  color: #ffeb3b;
+  color: #ffd700;
 }
 
 /* Hero */
 .hero {
   background: linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
     ),
     url('images/hero-bg.jpg') center/cover no-repeat;
   height: 60vh;
@@ -78,14 +105,23 @@ html {
 
 .hero-box h1 {
   font-size: 2.8em;
-  margin-bottom: 10px;
   color: #fff;
-  text-shadow: 2px 2px #ff4081;
+  text-shadow: 0 0 5px #ff4081, 0 0 10px #ff4081;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff4081;
+  }
+  to {
+    text-shadow: 0 0 20px #ff4081;
+  }
 }
 
 .hero-box p {
   font-size: 1.2em;
-  color: #f8f8f8;
+  color: #fce4ec;
 }
 
 /* About Section */
@@ -98,47 +134,35 @@ html {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #ffe0b5, #ffccf9);
+  background: linear-gradient(to bottom right, #ffe0b5, #ffd1dc);
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(255, 160, 122, 0.25);
+  animation: sectionFade 5s ease infinite alternate;
 }
 
-.about-text,
-.about-list {
-  flex: 1 1 400px;
+@keyframes sectionFade {
+  0% { opacity: 1; }
+  100% { opacity: 0.97; }
 }
 
-.about-text h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #d64520;
-  text-shadow: 1px 1px #fff;
+.about-text h2,
+.portfolio h2,
+.contact h2 {
+  font-size: 2.2em;
+  color: #ff4081;
+  text-shadow: 0 0 4px #ffc107;
 }
 
-.about-text p {
-  margin-bottom: 14px;
-  color: #6a0572;
-}
-
+.about-text p,
 .about-list li {
-  margin-bottom: 12px;
-  font-size: 1em;
-  line-height: 1.6;
-  color: #e91e63;
+  color: #6a0572;
 }
 
 /* Portfolio */
 .portfolio {
   padding: 60px 20px;
-  background: linear-gradient(to right, #fffde4, #f9f3ff);
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
   text-align: center;
-}
-
-.portfolio h2 {
-  font-size: 2.2em;
-  margin-bottom: 40px;
-  color: #ff5722;
-  text-shadow: 1px 1px #ffe;
 }
 
 .portfolio-grid {
@@ -152,15 +176,17 @@ html {
 .portfolio-grid img {
   width: 100%;
   border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  border: 4px solid #ff6f3c;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s;
+  border: 6px solid transparent;
+  background-image: linear-gradient(white, white),
+                    linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .portfolio-grid img:hover {
-  transform: scale(1.06);
-  box-shadow: 0 10px 24px rgba(255, 105, 135, 0.3);
-  border-color: #8bc34a;
+  transform: scale(1.07);
+  box-shadow: 0 10px 24px rgba(255, 105, 135, 0.4);
 }
 
 /* Instagram Box */
@@ -188,6 +214,7 @@ html {
   text-decoration: none;
   color: #6a0572;
   font-weight: 600;
+  text-shadow: 0 0 4px #fff;
 }
 
 .social-icon {
@@ -199,7 +226,7 @@ html {
 .contact {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(120deg, #fcd1d1, #dbe6ff);
+  background: linear-gradient(to right, #fcd1d1, #c2ffd8);
   border-left: 8px solid #ff4081;
   border-radius: 16px;
   color: #222;
@@ -208,18 +235,17 @@ html {
 
 .contact h2 {
   color: #673ab7;
-  font-size: 2em;
-  margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-  background: linear-gradient(to right, #ffe259, #ffa751);
+  background: linear-gradient(to right, #f7971e, #ffd200);
   text-align: center;
   padding: 20px;
   font-size: 0.9em;
   color: #4e342e;
-  border-top: 3px solid #ff9800;
+  border-top: 4px double #ff6f00;
+  text-shadow: 0 1px 1px #fff;
 }
 
 /* Buttons */
@@ -232,14 +258,15 @@ footer {
   font-size: 1em;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 0 6px 14px rgba(0, 201, 255, 0.3);
+  box-shadow: 0 6px 14px rgba(46, 147, 60, 0.3);
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   background: linear-gradient(to right, #ff6a00, #ee0979);
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.4);
 }
 
 /* Anchor fix to prevent navbar scroll cutoff */
