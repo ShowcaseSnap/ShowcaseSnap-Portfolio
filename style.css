@@ -14,6 +14,7 @@ body {
 
 html {
   scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
@@ -33,6 +34,7 @@ html {
 .logo {
   font-size: 1.5em;
   font-weight: 600;
+  color: #e4572e;
 }
 
 .nav-links {
@@ -45,16 +47,20 @@ html {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #e4572e;
+  color: #ff6f3c;
 }
 
 /* Hero */
 .hero {
-  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('images/hero-bg.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -93,6 +99,7 @@ html {
   padding: 40px 20px;
   background-color: #fef4eb;
   border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(255, 160, 122, 0.1);
 }
 
 .about-text,
@@ -103,7 +110,7 @@ html {
 .about-text h2 {
   font-size: 2em;
   margin-bottom: 20px;
-  color: #e4572e;
+  color: #d64520;
 }
 
 .about-text p {
@@ -124,7 +131,7 @@ html {
 /* Portfolio */
 .portfolio {
   padding: 60px 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   text-align: center;
 }
 
@@ -194,6 +201,11 @@ html {
   background-color: #fef1e6;
   border-left: 6px solid #e4572e;
   border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(255, 180, 120, 0.15);
+}
+
+.contact h2 {
+  color: #d64520;
 }
 
 /* Footer */
@@ -203,6 +215,25 @@ footer {
   padding: 20px;
   font-size: 0.9em;
   color: #666;
+  border-top: 2px solid #f0eae2;
+}
+
+/* Buttons */
+.cta-button {
+  background-color: #2e933c;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(46, 147, 60, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #25792f;
+  transform: translateY(-2px);
 }
 
 /* Anchor fix to prevent navbar scroll cutoff */
