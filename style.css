@@ -196,6 +196,14 @@ footer {
   font-size: 0.9em;
 }
 
+/* Anchor fix to prevent navbar scroll cutoff */
+.anchor-fix {
+  position: relative;
+  top: -100px; /* Adjust based on navbar height */
+  height: 0;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .navbar {
