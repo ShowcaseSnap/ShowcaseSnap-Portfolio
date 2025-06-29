@@ -23,10 +23,9 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
     observer.unobserve(entry.target);
   });
 }, appearOptions);
-
 faders.forEach(fader => appearOnScroll.observe(fader));
 
-// Scroll Progress Bar + Back to Top Button (if elements exist)
+// Scroll Progress Bar + Back to Top (optional elements)
 const backToTop = document.getElementById("backToTop");
 const progressBar = document.getElementById("progress-bar");
 
@@ -34,7 +33,6 @@ window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
   const scrollHeight = document.body.scrollHeight - window.innerHeight;
   const scrolled = (scrollY / scrollHeight) * 100;
-
   if (progressBar) progressBar.style.width = `${scrolled}%`;
   if (backToTop) backToTop.classList.toggle("show", scrollY > 200);
 });
@@ -45,10 +43,9 @@ if (backToTop) {
   });
 }
 
-// Dark Mode Toggle (if element exists)
+// Optional Dark Mode Toggle
 const toggle = document.getElementById("darkModeToggle");
 const icon = document.getElementById("theme-icon");
-
 if (toggle && icon) {
   toggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
@@ -56,7 +53,7 @@ if (toggle && icon) {
   });
 }
 
-// Ripple Effect on Buttons
+// Button Ripple Effect
 document.querySelectorAll(".ripple-btn").forEach(btn => {
   btn.addEventListener("click", function (e) {
     const ripple = document.createElement("span");
@@ -68,7 +65,7 @@ document.querySelectorAll(".ripple-btn").forEach(btn => {
   });
 });
 
-// Image Modal Preview (if modal setup exists)
+// Image Modal Preview (if modal HTML exists)
 const images = document.querySelectorAll(".preview-image");
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
