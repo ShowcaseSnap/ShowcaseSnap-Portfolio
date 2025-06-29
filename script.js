@@ -1,53 +1,76 @@
-// === Hamburger Menu Toggle ===
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+// --- Hamburger Menu Toggle ---
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
 });
 
-// === Typewriter Effect in Hero ===
+// --- Typewriter Effect for Hero Title ---
 const text = "We Capture Brands That Matter.";
-const typewriterTarget = document.getElementById("typewriter-text");
-let index = 0;
-
+let i = 0;
 function typeWriter() {
-  if (index < text.length) {
-    typewriterTarget.textContent += text.charAt(index);
-    index++;
-    setTimeout(typeWriter, 60);
+  const target = document.getElementById("typewriter-text");
+  if (!target) return;
+  if (i < text.length) {
+    target.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 70);
   }
 }
-
 window.addEventListener("load", typeWriter);
 
-// === Fade-In Scroll Animation ===
-const fadeElements = document.querySelectorAll(".fade-in");
+// --- Scroll Reveal Animation ---
+const faders = document.querySelectorAll(".fade-in");
 
-const observer = new IntersectionObserver((entries, observerInstance) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observerInstance.unobserve(entry.target);
-    }
-  });
-}, {
+const appearOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px"
-});
+};
 
-fadeElements.forEach(el => observer.observe(el));
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
 
-// === Back to Top Button (optional UI) ===
-const backToTop = document.createElement("button");
-backToTop.textContent = "↑";
-backToTop.className = "back-to-top";
-document.body.appendChild(backToTop);
+faders.forEach(fader => appearOnScroll.observe(fader));
 
+// --- Optional: Back to Top Button and Scroll Progress Bar ---
+const backToTop = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
-  backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+  const scrollY = window.scrollY;
+  const scrolled = (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+  if (backToTop) {
+    backToTop.classList.toggle("show", scrollY > 200);
+    document.getElementById("progress-bar").style.width = `${scrolled}%`;
+  }
 });
 
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+// --- Optional: Image Modal Preview ---
+const images = document.querySelectorAll(".preview-image");
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const closeModal = document.getElementById("close-modal");
+
+if (images.length && modal && modalImg && closeModal) {
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
