@@ -1,10 +1,21 @@
-// Scroll fade-in animation
+// Typewriter Effect
+const text = "We Capture Brands That Matter.";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typewriter-text").textContent += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 60);
+  }
+}
+window.addEventListener("load", typeWriter);
+
+// Scroll Fade-In Effect
 const faders = document.querySelectorAll(".fade-in");
 const appearOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px"
 };
-
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
@@ -15,12 +26,15 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
 
 faders.forEach(fader => appearOnScroll.observe(fader));
 
-// Back to top button and scroll progress bar
+// Scroll Progress Bar + Back to Top Button (if elements exist)
 const backToTop = document.getElementById("backToTop");
+const progressBar = document.getElementById("progress-bar");
+
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  const scrolled = (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  const progressBar = document.getElementById("progress-bar");
+  const scrollHeight = document.body.scrollHeight - window.innerHeight;
+  const scrolled = (scrollY / scrollHeight) * 100;
+
   if (progressBar) progressBar.style.width = `${scrolled}%`;
   if (backToTop) backToTop.classList.toggle("show", scrollY > 200);
 });
@@ -31,34 +45,18 @@ if (backToTop) {
   });
 }
 
-// Dark mode toggle
+// Dark Mode Toggle (if element exists)
 const toggle = document.getElementById("darkModeToggle");
 const icon = document.getElementById("theme-icon");
-if (toggle) {
+
+if (toggle && icon) {
   toggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    if (icon) {
-      icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    }
+    icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
   });
 }
 
-// Typewriter effect for hero heading
-const typewriterText = "We Capture Memories.";
-let index = 0;
-
-function typeWriter() {
-  const target = document.getElementById("typewriter-text");
-  if (target && index < typewriterText.length) {
-    target.textContent += typewriterText.charAt(index);
-    index++;
-    setTimeout(typeWriter, 70);
-  }
-}
-
-window.addEventListener("DOMContentLoaded", typeWriter);
-
-// Ripple effect on buttons
+// Ripple Effect on Buttons
 document.querySelectorAll(".ripple-btn").forEach(btn => {
   btn.addEventListener("click", function (e) {
     const ripple = document.createElement("span");
@@ -70,22 +68,20 @@ document.querySelectorAll(".ripple-btn").forEach(btn => {
   });
 });
 
-// Image modal preview
+// Image Modal Preview (if modal setup exists)
 const images = document.querySelectorAll(".preview-image");
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
 const closeModal = document.getElementById("close-modal");
 
-images.forEach(img => {
-  img.addEventListener("click", () => {
-    if (modal && modalImg) {
+if (modal && modalImg && closeModal) {
+  images.forEach(img => {
+    img.addEventListener("click", () => {
       modal.style.display = "flex";
       modalImg.src = img.src;
-    }
+    });
   });
-});
 
-if (closeModal && modal) {
   closeModal.addEventListener("click", () => {
     modal.style.display = "none";
   });
