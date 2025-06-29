@@ -1,3 +1,4 @@
+/* === Reset & Base Styles === */
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +17,9 @@ html {
   scroll-behavior: smooth;
 }
 
+/* === Navbar === */
 .navbar {
-  background: #ffffff;
+  background: #fff;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -35,7 +37,7 @@ html {
   color: #e4572e;
 }
 
-/* Hamburger */
+/* === Hamburger Icon === */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -50,7 +52,7 @@ html {
   border-radius: 2px;
 }
 
-/* Nav Links */
+/* === Nav Links === */
 .nav-links {
   list-style: none;
   display: flex;
@@ -68,13 +70,10 @@ html {
   color: #ff6f3c;
 }
 
-/* Hero */
+/* === Hero Section === */
 .hero {
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-  ),
-  url('images/hero-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('images/hero-bg.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -97,15 +96,15 @@ html {
 
 .hero-box p {
   font-size: 1.1em;
+  color: #f0f0f0;
 }
 
-/* About Section */
+/* === About Section === */
 .about-container {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
-  align-items: flex-start;
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px 20px;
@@ -136,7 +135,7 @@ html {
   line-height: 1.5;
 }
 
-/* Portfolio */
+/* === Portfolio === */
 .portfolio {
   padding: 60px 20px;
   background-color: #fff;
@@ -168,7 +167,7 @@ html {
   transform: scale(1.05);
 }
 
-/* Instagram Box */
+/* === Instagram Box === */
 .social-box {
   display: flex;
   justify-content: center;
@@ -201,7 +200,7 @@ html {
   height: 24px;
 }
 
-/* Contact */
+/* === Contact === */
 .contact {
   text-align: center;
   padding: 50px 20px;
@@ -215,7 +214,7 @@ html {
   color: #d64520;
 }
 
-/* Footer */
+/* === Footer === */
 footer {
   background: #f4f4f4;
   text-align: center;
@@ -225,7 +224,40 @@ footer {
   border-top: 2px solid #f0eae2;
 }
 
-/* Responsive */
+/* === Back to Top Button === */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  padding: 10px 14px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  background: #e4572e;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background: #c7431e;
+}
+
+/* === Scroll Fade-in Animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
