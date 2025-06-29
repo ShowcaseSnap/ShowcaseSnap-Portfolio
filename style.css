@@ -5,16 +5,16 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fffdfc;
+  background-color: #fff8f2;
   color: #333;
   line-height: 1.6;
+}
+
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
@@ -27,14 +27,27 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eee;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid #f0eae2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .logo {
   font-size: 1.5em;
   font-weight: 600;
   color: #e4572e;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
 }
 
 .nav-links {
@@ -51,68 +64,40 @@ body {
 }
 
 .nav-links a:hover {
-  color: #e4572e;
+  color: #ff6f3c;
 }
 
-/* Mobile Nav */
-.hamburger {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    background: #fff;
-    padding: 20px;
-    position: absolute;
-    top: 70px;
-    right: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
-
-/* Hero Section */
+/* Hero */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
     url('interior1.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
 }
 
 .hero-box {
   background: rgba(0, 0, 0, 0.75);
   padding: 40px;
   border-radius: 12px;
+  color: white;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .hero-box h1 {
   font-size: 2.5em;
   margin-bottom: 10px;
+  color: #fff;
 }
 
 .hero-box p {
   font-size: 1.1em;
-  color: #f0f0f0;
+  color: #f8f8f8;
 }
 
 /* About Section */
@@ -122,10 +107,10 @@ body {
   gap: 40px;
   justify-content: center;
   align-items: flex-start;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 60px auto;
   padding: 40px 20px;
-  background-color: #fdf3ed;
+  background-color: #fef4eb;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(255, 160, 122, 0.1);
 }
@@ -138,7 +123,7 @@ body {
 .about-text h2 {
   font-size: 2em;
   margin-bottom: 20px;
-  color: #e4572e;
+  color: #d64520;
 }
 
 .about-text p {
@@ -173,7 +158,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -246,26 +231,64 @@ footer {
   border-top: 2px solid #f0eae2;
 }
 
-/* Utility */
-.cta-button {
-  background-color: #2e933c;
-  color: #fff;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(46, 147, 60, 0.2);
-  transition: background 0.3s ease, transform 0.2s ease;
-}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.cta-button:hover {
-  background-color: #25792f;
-  transform: translateY(-2px);
-}
+  .menu-toggle {
+    display: flex;
+  }
 
-.anchor-fix {
-  position: relative;
-  top: -100px;
-  height: 0;
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hero-box h1 {
+    font-size: 1.8em;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .social-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .contact {
+    padding: 40px 15px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 0.85em;
+  }
 }
