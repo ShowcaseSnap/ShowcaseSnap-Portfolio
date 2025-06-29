@@ -1,19 +1,19 @@
-// ========== MOBILE MENU TOGGLE ==========
+// === Hamburger Menu Toggle ===
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
-  hamburger.classList.toggle('open');
 });
 
-// ========== TYPEWRITER HERO TEXT ==========
-const typewriterText = "We Capture Brands That Matter.";
+// === Typewriter Effect in Hero ===
+const text = "We Capture Brands That Matter.";
+const typewriterTarget = document.getElementById("typewriter-text");
 let index = 0;
 
 function typeWriter() {
-  if (index < typewriterText.length) {
-    document.getElementById("typewriter-text").textContent += typewriterText.charAt(index);
+  if (index < text.length) {
+    typewriterTarget.textContent += text.charAt(index);
     index++;
     setTimeout(typeWriter, 60);
   }
@@ -21,25 +21,24 @@ function typeWriter() {
 
 window.addEventListener("load", typeWriter);
 
-// ========== FADE-IN ANIMATION ON SCROLL ==========
-const faders = document.querySelectorAll(".fade-in");
+// === Fade-In Scroll Animation ===
+const fadeElements = document.querySelectorAll(".fade-in");
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries, observerInstance) => {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observerInstance.unobserve(entry.target);
+    }
   });
 }, {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px"
 });
 
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
+fadeElements.forEach(el => observer.observe(el));
 
-// ========== SMOOTH SCROLL BACK TO TOP (Optional UI Enhancement) ==========
+// === Back to Top Button (optional UI) ===
 const backToTop = document.createElement("button");
 backToTop.textContent = "↑";
 backToTop.className = "back-to-top";
