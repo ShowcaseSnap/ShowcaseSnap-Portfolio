@@ -8,26 +8,24 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #fff8f2;
   color: #333;
-  line-height: 1.6;
 }
 
 html {
-  scroll-padding-top: 100px;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 /* Navbar */
 .navbar {
-  background: #fff;
-  padding: 20px 40px;
+  background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 2px solid #eee;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eee;
 }
 
 .logo {
@@ -36,7 +34,6 @@ html {
   color: #e4572e;
 }
 
-/* Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -47,126 +44,122 @@ html {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
   color: #e4572e;
 }
 
-/* Hamburger Icon */
-.nav-toggle {
+/* Hamburger */
+.hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
   cursor: pointer;
+  gap: 5px;
 }
 
-.nav-toggle div {
+.hamburger span {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background: #333;
+  transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('interior1.jpg') center/cover no-repeat;
   height: 60vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("interior1.jpg") center/cover no-repeat;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-box {
   background: rgba(0, 0, 0, 0.7);
   padding: 40px;
   border-radius: 12px;
-  color: white;
+  color: #fff;
   text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .hero-box h1 {
   font-size: 2.5em;
   margin-bottom: 10px;
-  color: #fff;
 }
 
 .hero-box p {
   font-size: 1.1em;
-  color: #f8f8f8;
 }
 
 /* Sections */
-.about-container, .contact {
+.about-container,
+.contact {
   max-width: 1000px;
   margin: 60px auto;
   padding: 40px 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: #fef4eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.about-text h2, .contact h2 {
-  font-size: 2em;
+.about-text h2,
+.contact h2 {
   color: #e4572e;
   margin-bottom: 20px;
+}
+
+.about-list ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .about-list li {
   margin-bottom: 10px;
 }
 
+/* Portfolio */
 .portfolio {
-  padding: 60px 20px;
   text-align: center;
+  padding: 60px 20px;
 }
 
 .portfolio h2 {
-  font-size: 2em;
-  margin-bottom: 40px;
   color: #e4572e;
+  margin-bottom: 40px;
 }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .portfolio-grid img {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .portfolio-grid img:hover {
   transform: scale(1.05);
 }
 
+/* Instagram Box */
 .social-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin: 40px auto;
-  padding: 12px 20px;
-  background: #fff;
+  gap: 10px;
+  background: white;
   border: 1px solid #e4572e;
+  padding: 12px 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(228, 87, 46, 0.15);
-}
-
-.social-box a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  width: fit-content;
 }
 
 .social-icon {
@@ -177,48 +170,41 @@ html {
 /* Footer */
 footer {
   background: #f4f4f4;
-  padding: 20px;
   text-align: center;
-  color: #777;
+  padding: 20px;
   font-size: 0.9em;
+  color: #555;
+  border-top: 1px solid #ddd;
 }
 
-/* Responsive */
+/* Mobile */
 @media (max-width: 768px) {
-  .nav-toggle {
+  .hamburger {
     display: flex;
   }
 
   .nav-links {
-    display: none;
     position: absolute;
     top: 70px;
     right: 20px;
-    background: #fff;
+    background: white;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 8px;
+    display: none;
   }
 
   .nav-links.show {
     display: flex;
   }
 
-  .nav-links li {
-    margin: 0;
-  }
-
-  .hero-box h1 {
-    font-size: 1.8em;
-  }
-
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
 
-  .about-container {
-    flex-direction: column;
+  .hero-box h1 {
+    font-size: 1.8em;
   }
 }
