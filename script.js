@@ -1,4 +1,4 @@
-// --- Hamburger Menu Toggle ---
+// Mobile Hamburger Menu Toggle
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -6,23 +6,22 @@ navToggle.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
 
-// --- Typewriter Effect for Hero Title ---
-const text = "We Capture Brands That Matter.";
+// Typewriter Effect for Hero Heading
+const typeText = "We Capture Brands That Matter.";
 let i = 0;
 function typeWriter() {
   const target = document.getElementById("typewriter-text");
   if (!target) return;
-  if (i < text.length) {
-    target.textContent += text.charAt(i);
+  if (i < typeText.length) {
+    target.textContent += typeText.charAt(i);
     i++;
     setTimeout(typeWriter, 70);
   }
 }
 window.addEventListener("load", typeWriter);
 
-// --- Scroll Reveal Animation ---
+// Fade-in Scroll Animation
 const faders = document.querySelectorAll(".fade-in");
-
 const appearOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px"
@@ -38,39 +37,56 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
 
 faders.forEach(fader => appearOnScroll.observe(fader));
 
-// --- Optional: Back to Top Button and Scroll Progress Bar ---
-const backToTop = document.getElementById("backToTop");
+// Scroll Progress Bar
+const progressBar = document.createElement("div");
+progressBar.id = "progress-bar";
+document.body.appendChild(progressBar);
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  const scrolled = (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-
-  if (backToTop) {
-    backToTop.classList.toggle("show", scrollY > 200);
-    document.getElementById("progress-bar").style.width = `${scrolled}%`;
-  }
+  const height = document.body.scrollHeight - window.innerHeight;
+  const scrolled = (scrollY / height) * 100;
+  progressBar.style.width = `${scrolled}%`;
 });
 
-if (backToTop) {
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+// Ripple Button Effect
+document.querySelectorAll(".ripple-btn").forEach(button => {
+  button.addEventListener("click", function (e) {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    ripple.style.left = `${e.offsetX}px`;
+    ripple.style.top = `${e.offsetY}px`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
   });
-}
+});
 
-// --- Optional: Image Modal Preview ---
-const images = document.querySelectorAll(".preview-image");
-const modal = document.getElementById("image-modal");
-const modalImg = document.getElementById("modal-img");
-const closeModal = document.getElementById("close-modal");
+// Image Modal Preview
+const modal = document.createElement("div");
+modal.id = "image-modal";
+modal.innerHTML = `
+  <span id="close-modal" style="position:absolute;top:10px;right:20px;font-size:2em;cursor:pointer;color:white;">&times;</span>
+  <img id="modal-img" style="max-width:90%;max-height:90%;">
+`;
+modal.style.display = "none";
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.left = "0";
+modal.style.width = "100%";
+modal.style.height = "100%";
+modal.style.background = "rgba(0,0,0,0.8)";
+modal.style.justifyContent = "center";
+modal.style.alignItems = "center";
+modal.style.zIndex = "9999";
+document.body.appendChild(modal);
 
-if (images.length && modal && modalImg && closeModal) {
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      modal.style.display = "flex";
-      modalImg.src = img.src;
-    });
+document.querySelectorAll(".portfolio-grid img").forEach(img => {
+  img.style.cursor = "pointer";
+  img.addEventListener("click", () => {
+    document.getElementById("modal-img").src = img.src;
+    modal.style.display = "flex";
   });
+});
 
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-}
+document.getElementById("close-modal").addEventListener("click", () => {
+  modal.style.display = "none";
+});
